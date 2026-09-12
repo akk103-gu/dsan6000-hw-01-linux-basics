@@ -1,0 +1,14 @@
+cd data
+touch wikimedia_data_summary.csv
+echo "filename,size,num_lines" > wikimedia_data_summary.csv
+
+cd hourly
+for f in *
+do
+	base=basename f
+	filesize
+	echo "filename,size,num_lines" >> wikimedia_data_summary.csv
+	echo "base is: $base"
+done
+
+mv wikimedia_data_summary.csv ../../
